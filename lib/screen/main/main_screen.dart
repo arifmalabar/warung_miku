@@ -51,7 +51,7 @@ class MainScreenState extends State<MainScreen> {
       body: Container(
         margin: EdgeInsets.all(10),
         child: FutureBuilder(
-            future: pelanggans,
+            future: getDataPelanggan(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 List<Pelanggan> pg = snapshot.data!;
@@ -64,7 +64,7 @@ class MainScreenState extends State<MainScreen> {
                 if (snapshot.error == null) {
                   return Center(child: CircularProgressIndicator());
                 } else {
-                  return Text("Error : ${snapshot.error}");
+                  return Text("Error Fetching Data Failed");
                 }
               }
             }),

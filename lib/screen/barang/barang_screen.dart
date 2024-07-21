@@ -61,12 +61,12 @@ class BarangScreenState extends State<BarangScreen> {
               List<Barang> data = snapshot.data!;
               return listBarang(data);
             } else {
-              if (snapshot.error != null) {
-                return Text("Error: ${snapshot.error}");
-              } else {
+              if (snapshot.error == null) {
                 return Center(
                   child: CircularProgressIndicator(),
                 );
+              } else {
+                return Text("Error Fetching Data Failed");
               }
             }
           },
